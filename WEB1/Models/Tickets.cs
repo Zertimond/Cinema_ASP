@@ -6,7 +6,7 @@ namespace Cinema_ASP.Models
 {
     public class Tickets
     {
-        [Key] public int TicketId { get; set; }
+        [Key] public Guid TicketId { get; set; }
 
         [Required] public int ShowId { get; set; }
 

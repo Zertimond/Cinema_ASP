@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using Cinema_ASP.Models;
+using Cinema_ASP.Services;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,10 +16,10 @@ var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
-app.MapGet("/", (Cinema_ASP.AppContext db) => db.Tickets.ToList());
+/*app.MapGet("/", (Cinema_ASP.AppContext db) => db.Tickets.ToList());
 
 
-app.MapGet("/ticketsbyid/{TicketId}", async (int TicketId, Cinema_ASP.AppContext db) =>
+app.MapGet("/ticketsbyid/{TicketId}", async (Guid TicketId, Cinema_ASP.AppContext db) =>
 {
     Tickets? tickets = await db.Tickets.FirstOrDefaultAsync(u => u.TicketId == TicketId);
     if (tickets == null)
@@ -38,7 +40,7 @@ app.MapGet("/ticketsbyshow/{ShowId}", async (int ShowId, Cinema_ASP.AppContext d
 });
 
 
-app.MapPost("/addtickets", (int TicketId, int ShowId, int Place, int Cost, Cinema_ASP.AppContext db) =>
+app.MapPost("/addtickets", (Guid TicketId, int ShowId, int Place, int Cost, Cinema_ASP.AppContext db) =>
 {
     Tickets tickets = new Tickets();
     tickets.TicketId = TicketId;
@@ -48,6 +50,46 @@ app.MapPost("/addtickets", (int TicketId, int ShowId, int Place, int Cost, Cinem
     db.Tickets.Add(tickets);
     db.SaveChanges();
     return tickets;
+});*/
+
+app.Run(async (context) =>
+{
+    var ticketService = context.RequestServices.GetService<ITicketService>()
+                       ?? throw new Exception("Ticket service not found");
+    var path = context.Request.Path;
+    switch (path)
+    {
+        case "/tickets":
+            {
+                var tickets = await ticketService.GetAllTickets();
+                await context.Response.WriteAsJsonAsync(tickets);
+                break;
+            }
+        case "/tickets/create":
+            {
+                var ShowId = await context.Request.ReadFromJsonAsync<int>();
+                var Place = await context.Request.ReadFromJsonAsync<int>();
+                var Cost = await context.Request.ReadFromJsonAsync<int>();
+                var userId = await ticketService.CreateTicket(ShowId, Place,  Cost);
+                await context.Response.WriteAsJsonAsync(userId);
+                break;
+            }
+        case "/tickets/update":
+            {
+                var model = await context.Request.ReadFromJsonAsync<TicketUpdateModel>()
+                            ?? throw new Exception("Invalid ticket model");
+                await ticketService.UpdateTicket(model.Place, model.Cost, model.Id);
+                await context.Response.WriteAsync("Ticket updated");
+                break;
+            }
+        case "/tickets/delete":
+            {
+                var model = await context.Request.ReadFromJsonAsync<Guid>();
+                await ticketService.DeleteTicket(model);
+                await context.Response.WriteAsync("Ticket deleted");
+                break;
+            }
+    }
 });
 
 app.Run();
