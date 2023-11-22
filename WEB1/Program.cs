@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 string connection = "Server=(localdb)\\mssqllocaldb;Database=applicationdb;Trusted_Connection=True;";
 builder.Services.AddDbContext<Cinema_ASP.AppContext>(options => options.UseSqlServer(connection));
+builder.Services.AddScoped<ITicketService, TicketService>();
 
 var services = builder.Services;
 
@@ -67,10 +68,11 @@ app.Run(async (context) =>
             }
         case "/tickets/create":
             {
+                var TicketId = await context.Request.ReadFromJsonAsync<int>();
                 var ShowId = await context.Request.ReadFromJsonAsync<int>();
                 var Place = await context.Request.ReadFromJsonAsync<int>();
                 var Cost = await context.Request.ReadFromJsonAsync<int>();
-                var userId = await ticketService.CreateTicket(ShowId, Place,  Cost);
+                var userId = await ticketService.CreateTicket(TicketId, ShowId, Place,  Cost);
                 await context.Response.WriteAsJsonAsync(userId);
                 break;
             }
@@ -78,13 +80,13 @@ app.Run(async (context) =>
             {
                 var model = await context.Request.ReadFromJsonAsync<TicketUpdateModel>()
                             ?? throw new Exception("Invalid ticket model");
-                await ticketService.UpdateTicket(model.Place, model.Cost, model.Id);
+                await ticketService.UpdateTicket(model.Place, model.Cost, model.TicketId);
                 await context.Response.WriteAsync("Ticket updated");
                 break;
             }
         case "/tickets/delete":
             {
-                var model = await context.Request.ReadFromJsonAsync<Guid>();
+                var model = await context.Request.ReadFromJsonAsync<int>();
                 await ticketService.DeleteTicket(model);
                 await context.Response.WriteAsync("Ticket deleted");
                 break;

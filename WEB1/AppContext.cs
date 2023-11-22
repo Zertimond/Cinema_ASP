@@ -13,11 +13,11 @@ namespace Cinema_ASP
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<Tickets>().HasData(
+            modelBuilder.Entity<Tickets>().HasData(
                     new Tickets { TicketId = 1, ShowId = 4, Place = 15, Cost = 135 },
                     new Tickets { TicketId = 2, ShowId = 4, Place = 20, Cost = 140 },
                     new Tickets { TicketId = 3, ShowId = 4, Place = 5, Cost = 135 }
-            );*/
+            );
         }
     }
 }

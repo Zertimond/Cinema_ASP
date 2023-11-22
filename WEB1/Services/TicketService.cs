@@ -12,11 +12,11 @@ public class TicketService : ITicketService
         _context = context;
     }
 
-    public async Task<Guid> CreateTicket(int ShowId, int Place, int Cost)
+    public async Task<int> CreateTicket(int TicketId, int ShowId, int Place, int Cost)
     {
         var ticket = new Tickets
         {
-            TicketId = Guid.NewGuid(),
+            TicketId = TicketId,
             ShowId = ShowId,
             Place = Place,
             Cost = Cost
@@ -27,7 +27,7 @@ public class TicketService : ITicketService
         return ticket.TicketId;
     }
 
-    public async Task DeleteTicket(Guid Ticketid)
+    public async Task DeleteTicket(int Ticketid)
     {
         if (!await _context.Tickets.AnyAsync(Ticket => Ticket.TicketId == Ticketid))
         {
@@ -45,7 +45,7 @@ public class TicketService : ITicketService
         return await _context.Tickets.ToListAsync();
     }
 
-    public async Task<Tickets> GetTicket(Guid Ticketid)
+    public async Task<Tickets> GetTicket(int Ticketid)
     {
         if (!await _context.Tickets.AnyAsync(Ticket => Ticket.TicketId == Ticketid))
         {
@@ -59,7 +59,7 @@ public class TicketService : ITicketService
         return Ticket;
     }
 
-    public async Task<string> UpdateTicket(int Place, int Cost, Guid Ticketid)
+    public async Task<string> UpdateTicket(int Place, int Cost, int Ticketid)
     {
         if (!await _context.Tickets.AnyAsync(Ticket => Ticket.TicketId == Ticketid))
         {
