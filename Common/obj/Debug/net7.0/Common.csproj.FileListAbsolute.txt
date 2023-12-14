@@ -1,0 +1,15 @@
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.csproj.AssemblyReference.cache
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.AssemblyInfoInputs.cache
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.AssemblyInfo.cs
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\zhena\Source\Repos\Lab1\Common\bin\Debug\net7.0\Common.deps.json
+C:\Users\zhena\Source\Repos\Lab1\Common\bin\Debug\net7.0\Common.dll
+C:\Users\zhena\Source\Repos\Lab1\Common\bin\Debug\net7.0\Common.pdb
+C:\Users\zhena\Source\Repos\Lab1\Common\bin\Debug\net7.0\Lab1_Data.dll
+C:\Users\zhena\Source\Repos\Lab1\Common\bin\Debug\net7.0\Lab1_Data.pdb
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.csproj.CopyComplete
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.dll
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\refint\Common.dll
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\Common.pdb
+C:\Users\zhena\Source\Repos\Lab1\Common\obj\Debug\net7.0\ref\Common.dll
