@@ -1,0 +1,22 @@
+﻿@model Common.Models.UserDeleteModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+<form asp-action="DeleteUser">
+
+    <tr>
+        <ul>
+            Id:
+            <ul>
+                <select asp-for="Id" asp-items="@ViewBag.Users" class="form-control"></select>
+            </ul>
+        </ul>
+
+        <input type="submit" value="Delete"/>
+    </tr>
+</form>

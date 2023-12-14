@@ -1,0 +1,25 @@
+﻿@model Common.Models.UserCreateModel
+
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "_Layout";
+}
+
+<h2>Create user</h2>
+<form asp-action="CreateUser">
+
+    <tr>
+        <ul>
+            Name:
+            <input asp-for="Name"/>
+        </ul>
+        <ul>
+            Email:
+            <input asp-for="Email"/>
+        </ul>
+        <ul>
+            <select asp-for="GenderId" asp-items="@ViewBag.Genders" class="form-control"></select>
+        </ul>
+        <input type="submit" value="Create"/>
+    </tr>
+</form>

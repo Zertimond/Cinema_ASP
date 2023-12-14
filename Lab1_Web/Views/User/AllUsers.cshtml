@@ -1,0 +1,55 @@
+﻿@model List<Lab1_Data.Entities.User>
+@{
+    ViewBag.Title = "AllUsers";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <h2>All users</h2>
+    <form asp-controller="User" asp-action="GetAllUsers" method="get">
+        <a>
+            Page number
+            <input type="number" name="page" value="1"/>
+        </a>
+        <a>
+            Page size
+            <input type="number" name="pageSize" value="5"/>
+        </a>
+        <a>
+            Sort by
+            <input name="sortBy"/>
+        </a>
+        <a>
+            Is Asc
+            <select name="isAsc">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </a>
+        <input type="submit" value="Get all users"/>
+    </form>
+
+
+    <ul>
+        @foreach (var user in Model)
+        {
+            <ul>
+                <tr>
+                    Name: @user.Name
+                    Email: @user.Email
+                    Gender: @user.Gender?.Name
+                </tr>
+                
+            </ul>
+        }
+    </ul>
+</div>
+</body>
+</html>
