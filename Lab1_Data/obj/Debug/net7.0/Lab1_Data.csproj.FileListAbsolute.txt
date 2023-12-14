@@ -1,0 +1,12 @@
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.csproj.AssemblyReference.cache
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.AssemblyInfoInputs.cache
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.AssemblyInfo.cs
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.csproj.CoreCompileInputs.cache
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\bin\Debug\net7.0\Lab1_Data.deps.json
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\bin\Debug\net7.0\Lab1_Data.dll
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\bin\Debug\net7.0\Lab1_Data.pdb
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.dll
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\refint\Lab1_Data.dll
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\Lab1_Data.pdb
+C:\Users\zhena\Source\Repos\Lab1\Lab1_Data\obj\Debug\net7.0\ref\Lab1_Data.dll
